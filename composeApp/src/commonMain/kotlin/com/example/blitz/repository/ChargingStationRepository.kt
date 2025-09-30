@@ -25,15 +25,6 @@ class ChargingStationRepository {
         }
     }
     
-    suspend fun getStationById(id: String): Result<ChargingStation?> {
-        return try {
-            val station = apiClient.getChargingStationById(id)
-            Result.success(station)
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
-    
     fun close() {
         apiClient.close()
     }

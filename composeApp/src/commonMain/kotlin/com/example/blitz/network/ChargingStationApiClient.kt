@@ -43,21 +43,21 @@ class ChargingStationApiClient {
         }
     }
     
-    suspend fun getChargingStationById(id: String): ChargingStation? {
-        return try {
-            val postId = id.toIntOrNull() ?: return null
-            
-            // Get specific post
-            val post: Post = httpClient.get("$baseUrl/posts/$postId").body()
-            
-            // Get user info for this post
-            val user: User = httpClient.get("$baseUrl/users/${post.userId}").body()
-            
-            post.toChargingStation(user)
-        } catch (e: Exception) {
-            null
-        }
-    }
+//    suspend fun getChargingStationById(id: String): ChargingStation? {
+//        return try {
+//            val postId = id.toIntOrNull() ?: return null
+//
+//            // Get specific post
+//            val post: Post = httpClient.get("$baseUrl/posts/$postId").body()
+//
+//            // Get user info for this post
+//            val user: User = httpClient.get("$baseUrl/users/${post.userId}").body()
+//
+//            post.toChargingStation(user)
+//        } catch (e: Exception) {
+//            null
+//        }
+//    }
     
     fun close() {
         httpClient.close()
